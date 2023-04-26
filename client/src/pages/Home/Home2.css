@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+::-webkit-scrollbar{
+    width: 12px;
+    background: rgb(82, 82, 82);
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(to left, rgba(255,255,255, 0.4),rgba(255,255,255, 0.2));
+    border-radius: 1vw;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(to left, rgba(255,255,255, 0.6),rgba(255,255,255, 0.2));
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: #29E6D4;
+
+
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: auto;
+    max-height: 6vw;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 40px 100px;
+    z-index: 100000000;
+}
+
+header.sticky{
+    padding: 5px 100px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    background-size: contain;
+}
+
+header.sticky .logo{
+    color: #050505;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+
+header .logo{
+    position: relative;
+    font-weight: 700;
+    color: transparent;
+    text-decoration: none;
+    font-size: 2vw;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: 0.6s;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    position: relative;
+    list-style: none;
+    font-size: 1vw;
+}
+
+header ul li:nth-child(1){
+    font-weight: 600;
+}
+
+header ul li a{
+    position: relative;
+    margin: 0 30px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 500px;
+    transition: 0.6s;
+}
+
+.banner{
+    display: grid;
+    place-items: center;
+}
+
+.figure{
+    position: absolute;
+    filter: blur(50px);
+    animation: animate 10s linear infinite;
+    animation-delay: calc(-1s * var(--i));
+}
+@keyframes animate{
+    0%,100%{
+        transform: translateY(-80px);
+    }
+    50%{
+        transform: translateY(80px);
+    }
+}
+.figure:nth-child(1){
+    top: 10%;
+    left: 5%;
+    width: 600px;
+    height: 330px;
+    border-radius: 50%;
+    background: #f8f684;
+}
+
+.figure:nth-child(2){
+    top: 35%;
+    left: 10%;
+    width: 200px;
+    height: 500px;
+    border-radius: 50%;
+    background: #29E6D4;
+}
+
+.figure:nth-child(3){
+    top: 40%;
+    left: 50%;
+    width: 300px;
+    height: 330px;
+    border-radius: 50%;
+    background: #b4f163;
+}
+
+.figure:nth-child(4){
+    top: 20%;
+    left: 60%;
+    width: 600px;
+    height: 330px;
+    border-radius: 50%;
+    background: #A0FA91;
+}
+.sticky2{
+    color: transparent;
+}
+
+.cards{
+    min-height: 25vw;
+    width: 90%;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1)
+    );
+    border-radius: 20px;
+    z-index: 2;
+    display: flex;
+    backdrop-filter: blur(2rem);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-bottom: rgba(255, 255, 255, 0.3);
+    border-right: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    justify-content: space-evenly;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background: linear-gradient(to right bottom, rgba(255,255,255, 0.4), rgba(255,255,255, 0.1));
+    border-radius: 2rem;
+    margin: 2rem 0rem;
+    padding: 2rem;
+    box-shadow: 6px 6px 20px rgba(122,122,122, 0.2);
+    justify-content: space-evenly;
+}
+
+h2{
+    font-size: 5vh;
+}
+
+.centered {
+    color: #fff;
+
+
+    font-size: 7vw;
+    font-weight: 700;
+    letter-spacing: 5px;
+    transition: 0.6s;
+}
+
+.centered2 {
+    color: #fff;
+
+
+    font-size: 2vw;
+    font-weight: 400;
+    letter-spacing: 5px;
+    transition: 0.6s;
+    text-align: center;
+}
