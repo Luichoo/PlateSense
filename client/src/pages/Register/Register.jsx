@@ -2,7 +2,7 @@ import React from 'react';
 import './register.css';
 // import './scripts.js';
 import { Link } from "react-router-dom";
-function Login() {
+function Register() {
   return (
     <div className="body">
       <div className="container">
@@ -12,7 +12,7 @@ function Login() {
       <div className="row align-items-stretch">
         <div className="col bg_img d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
         </div>
-        <div className="col bg-white rounded-end p-4">
+        <div className="col bg-white rounded-end p-3">
           <div className="text-end">
             <h1 className="h1 display-2 p-3">PlateSense©</h1>
           </div>
@@ -57,4 +57,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

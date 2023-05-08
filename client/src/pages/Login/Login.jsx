@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 // import './scripts.js';
 
-function Register() {
+function Login() {
   return (
     <div className="body">
       <div className="container">
@@ -50,4 +50,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
