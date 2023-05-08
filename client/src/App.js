@@ -9,6 +9,9 @@ import NavBar from "./components/navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import Quien from "./pages/Quien/Quien";
+
+
 const Layout = () => {
   return (
     
@@ -38,15 +41,15 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>
+      },
+      {
+        path: "/informacion",
+        element: <Quien/>
+      },
+      {
+       path: "*",
+        element: <h1>Not Found</h1>
       }
-      // {
-      //   path: "/news",
-      //   element: <News/>
-      // },
-      // {
-      //   path: "/survey",
-      //   element: <Survey/>
-      // },
     ]
   },
 
