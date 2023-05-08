@@ -11,7 +11,7 @@ function Footer() {
         <div className="row mt-4">
         <div className="col-lg-3 col-md-6 mb-4 mb-md-0 "></div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 className="text-uppercase">PricePaw</h5>
+            <h5 className="text-uppercase">PlateSense</h5>
 
             <ul className="list-unstyled mb-0">
               <li>
@@ -25,20 +25,18 @@ function Footer() {
           
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
             <h5 className="text-uppercase"></h5>
-
             <ul className="list-unstyled">
+              <li>
+                {'‎'}
+                </li>
               <li>
                 <Link to="/" className="text-white"><FontAwesomeIcon icon={faShippingFast} className="fa-fw me-2" />Inicio</Link>
               </li>
               <li>
-                <a href="#!" className="text-white"><FontAwesomeIcon icon={faBackspace} className="fa-fw me-2" />Quienes somos</a>
-              </li>
-              <li>
-                <a href="#!" className="text-white"><FontAwesomeIcon icon={faFileAlt} className="fa-fw me-2" />Uso</a>
-              </li>
-              <li>
-                <a href="#!" className="text-white"><FontAwesomeIcon icon={faFileAlt} className="fa-fw me-2" />Trabaja con nosotros</a>
-              </li>
+           <a href="#!" className="text-white"><FontAwesomeIcon icon={faBackspace} className="fa-fw me-2" />Quienes somos</a>
+              </li>     
+
+
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0 "></div>
