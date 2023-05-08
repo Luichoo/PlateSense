@@ -3,9 +3,9 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from './logo.png';
 
+import logo from './logo.png';
+import './Navbar.css';
 function NavBar() {
   return (
 
@@ -26,11 +26,13 @@ function NavBar() {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+          <Nav className="me-auto nav_link">
+            <Nav.Link><Link to='/'>Inicio</Link></Nav.Link>
+            <Nav.Link href="/waw">Quienes somos</Nav.Link>
+            <Nav.Link><Link to='/register' >Registrate</Link></Nav.Link>
+            <Nav.Link><Link to='/login' >Iniciar Sesión</Link></Nav.Link>
 
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
@@ -40,7 +42,7 @@ function NavBar() {
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
           </Nav>
         </Navbar.Collapse>
         </Container>
