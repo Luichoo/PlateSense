@@ -1,6 +1,6 @@
 import React from 'react';
 import './register.css';
-import './scripts.js';
+// import './scripts.js';
 import { Link } from "react-router-dom";
 function Login() {
   return (
