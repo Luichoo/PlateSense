@@ -34,7 +34,7 @@ function Home() {
 </div>
         {img === null ? (
           <>
-            <div className="cam-container mt-3 h-100">
+            <div className="cam-container mt-4 h-100">
 
   
             {isActive &&  <Webcam
@@ -61,7 +61,7 @@ function Home() {
           </>
         ) : (
           <>
-            <div className="img-container mt-5 h-100">
+            <div className="img-container mt-4 h-100">
               <img src={img} alt="screenshot"  />
             </div>
 
