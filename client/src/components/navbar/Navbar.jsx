@@ -28,7 +28,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto nav_link">
             <Nav.Link><Link to='/'>Inicio</Link></Nav.Link>
-            <Nav.Link href="/waw">Quienes somos</Nav.Link>
+            <Nav.Link><Link to='/informacion' >Quienes somos</Link></Nav.Link>
             <Nav.Link><Link to='/register' >Registrate</Link></Nav.Link>
             <Nav.Link><Link to='/login' >Iniciar Sesión</Link></Nav.Link>
 
