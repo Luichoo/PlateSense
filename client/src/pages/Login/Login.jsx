@@ -15,7 +15,7 @@ function Register() {
         </div>
         <div className="col bg-white rounded-end p-4">
           <div className="text-end">
-            <h1 className="h1 display-2 p-3">PricePaw©</h1>
+            <h1 className="h1 display-2 p-3">PlateSense©</h1>
           </div>
           <h2 className="text-center py-5 display-6">Login</h2>
           <form action="#">

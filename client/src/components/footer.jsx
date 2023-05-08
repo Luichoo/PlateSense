@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook, faUserEdit, faShippingFast, faBackspace, faFileAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faUserEdit, faShippingFast, faBackspace} from '@fortawesome/free-solid-svg-icons'
 // import '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
@@ -24,11 +24,9 @@ function Footer() {
           </div>
           
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
-            <h5 className="text-uppercase"></h5>
+            <h5 className="text-uppercase">{'‎'}</h5>
             <ul className="list-unstyled">
-              <li>
-                {'‎'}
-                </li>
+
               <li>
                 <Link to="/" className="text-white"><FontAwesomeIcon icon={faShippingFast} className="fa-fw me-2" />Inicio</Link>
               </li>
