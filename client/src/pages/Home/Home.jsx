@@ -8,13 +8,19 @@ function Home() {
   const [isActive, setIsActive] = useState(false);
   const [img, setImg] = useState(null);
   const webcamRef = useRef(null);
-
+  const [disabled, setDisabled] = useState(false);
+  const [disabled2, setDisabled2] = useState(false);
   const videoConstraints = {
     width: 1280,
     height: 720,
     facingMode: "user",
   };
-
+  function handlerWCB() {
+    setDisabled(!disabled);
+  }
+  function handlertoggler() {
+    setDisabled2(!disabled2);
+  }
 
 
   const capture = useCallback(() => {
@@ -28,7 +34,7 @@ function Home() {
         <h2>Bienvenido ese</h2>
         <div class="switch-button">
 
-    <input onClick={() => setIsActive(!isActive)} type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox"></input>
+    <input onClick={() => {setIsActive(!isActive); handlerWCB()}} type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox" disabled={disabled2}></input>
 
     <label for="switch-label" class="switch-button__label"></label>
 </div>
@@ -51,9 +57,10 @@ function Home() {
 
             <div className="btn-container mt-4 mb-5">
               <button
-                onClick={capture}
+                onClick={()=>{capture(); handlertoggler()}}
                 className="btn btn-dark btn-lg"
                 id="submit"
+                disabled={!disabled}
               >
                 Captura
               </button>
@@ -62,12 +69,12 @@ function Home() {
         ) : (
           <>
             <div className="img-container mt-4 h-100">
-              <img src={img} alt="screenshot"  />
+              <img src={img} alt="screenshot" className="wc-image" />
             </div>
 
-            <div className="btn-container mt-4 mb-5">
+            <div className="btn-container mt-4 mb-5" style={{'marginTop':'1px'}}>
               <button
-                onClick={() => setImg(null)}
+                onClick={() => {setImg(null)}}
                 className="btn btn-dark btn-lg"
                 id="submit"
               >
