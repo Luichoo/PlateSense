@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
+
 import logo from './logo.png';
 import './Navbar.css';
 function NavBar() {
@@ -21,17 +22,17 @@ function NavBar() {
               />{' '}
               <Link to="/" style={{'text-decoration': 'none','color':'#FFFFFFC8'}}> PlateSense</Link></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
+      <Navbar.Collapse id="responsive-navbar-nav" >
 
-        <Nav className="container me-auto justify-content-between ">
-          <div>
-          <Nav.Link eventKey={1} className="l-nav"><Link to='/'>Inicio</Link></Nav.Link>
-        <Nav.Link eventKey={2} className="l-nav"><Link to='/informacion' >Quienes somos</Link></Nav.Link>
+        <Nav className="me-auto justify-content-between ms-0 " style={{'maxWidth':'100%', 'width':'100%'}}>
+          <div >
+          <Nav.Link eventKey={1} as={Link} to='/' className="l-nav">Inicio</Nav.Link>
+        <Nav.Link eventKey={2} as={Link} to='/informacion' className="l-nav">Quienes somos</Nav.Link>
        
           </div>
           <div >
-        <Nav.Link eventKey={3} className="r-nav"> <Link to='/register' >Registrate</Link></Nav.Link>
-          <Nav.Link eventKey={4} className="r-nav"><Link  to='/login' >Iniciar Sesión</Link></Nav.Link>
+        <Nav.Link eventKey={3} as={Link} to='/register' className="r-nav"> Registrate</Nav.Link>
+          <Nav.Link eventKey={4} as={Link} to='/login' className="r-nav">Iniciar Sesión</Nav.Link>
         </div>
        
         </Nav>

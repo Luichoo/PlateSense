@@ -1,9 +1,9 @@
-a{
+/* a{
     text-decoration: none;
     color: var(--darkreader-text--bs-nav-link-color);
     transition: all 0.2s ease-in-out;
 
-}
+} */
 .r-nav{
 
     float: right;
