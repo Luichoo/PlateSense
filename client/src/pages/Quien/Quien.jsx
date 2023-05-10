@@ -2,7 +2,7 @@ import React from "react";
 
 function Quien() {
     return (
-        <div className="container d-flex justify-content-center flex-column">
+        <div className="container d-flex justify-content-center flex-column"  style={{'height':'40rem'}}>
             <div className="row">
                 <div className="col-12">
                     <h1 className="text-center">Quienes somos</h1>
@@ -19,5 +19,6 @@ function Quien() {
         </div>
     );
 }
+
 
 export default Quien;
