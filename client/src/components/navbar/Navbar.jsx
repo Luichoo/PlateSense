@@ -8,8 +8,8 @@ import logo from './logo.png';
 import './Navbar.css';
 function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-    <Container>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{'maxWidth':'100%'}}>
+    <Container className="ms-3 me-3" style={{ 'maxWidth':'100%'}}>
       <Navbar.Brand eventKey={1}> <img
       
                 src={logo}
@@ -23,22 +23,21 @@ function NavBar() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
 
-        <Nav className="me-auto d-flex flex-row justify-content-between align-content-around">
-          <div className="d-flex flex-row justify-content-end w-100 align-content-end">
-
-   
-          <div className="d-flex flex-row">
-          <Nav.Link eventKey={1}><Link to='/'>Inicio</Link></Nav.Link>
-        <Nav.Link eventKey={2} ><Link to='/informacion' >Quienes somos</Link></Nav.Link>
-
+        <Nav className="container me-auto justify-content-between ">
+          <div className="l-nav-c">
+          <Nav.Link eventKey={1} className="l-nav"><Link to='/'>Inicio</Link></Nav.Link>
+        <Nav.Link eventKey={2} className="l-nav"><Link to='/informacion' >Quienes somos</Link></Nav.Link>
+       
           </div>
-
-        <div className="d-flex flex-row">
-          <Nav.Link eventKey={3} > <Link to='/register' >Registrate</Link></Nav.Link>
-          <Nav.Link eventKey={4}><Link  to='/login' >Iniciar Sesión</Link></Nav.Link>
+          <div className="r-nav-c">
+        <Nav.Link eventKey={3} className="r-nav"> <Link to='/register' >Registrate</Link></Nav.Link>
+          <Nav.Link eventKey={4} className="r-nav"><Link  to='/login' >Iniciar Sesión</Link></Nav.Link>
         </div>
-        </div>
+       
         </Nav>
+        {/* <Nav>
+         
+        </Nav> */}
       </Navbar.Collapse>
     </Container>
   </Navbar>

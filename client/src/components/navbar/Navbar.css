@@ -4,3 +4,17 @@ a{
     transition: all 0.2s ease-in-out;
 
 }
+.r-nav{
+
+    float: right;
+}
+.l-nav{
+    float: left;
+}
+
+@media screen and (max-width: 991px){
+    .r-nav, .l-nav{
+        float: none;
+    }
+}
+    
