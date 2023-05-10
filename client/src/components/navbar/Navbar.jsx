@@ -24,12 +24,12 @@ function NavBar() {
       <Navbar.Collapse id="responsive-navbar-nav">
 
         <Nav className="container me-auto justify-content-between ">
-          <div className="l-nav-c">
+          <div>
           <Nav.Link eventKey={1} className="l-nav"><Link to='/'>Inicio</Link></Nav.Link>
         <Nav.Link eventKey={2} className="l-nav"><Link to='/informacion' >Quienes somos</Link></Nav.Link>
        
           </div>
-          <div className="r-nav-c">
+          <div >
         <Nav.Link eventKey={3} className="r-nav"> <Link to='/register' >Registrate</Link></Nav.Link>
           <Nav.Link eventKey={4} className="r-nav"><Link  to='/login' >Iniciar Sesión</Link></Nav.Link>
         </div>
