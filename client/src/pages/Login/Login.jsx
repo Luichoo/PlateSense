@@ -21,11 +21,11 @@ function Login() {
           <form action="#">
             <div className="mb-4">
               <div className="mb-4 form-floating">
-                <input type="text" className="form-control" name="username" placeholder="username" id="username" />
+                <input type="text" className="form-control" name="username" placeholder="username" id="username" autoComplete='on'/>
                 <label for="username" className="form-label">Username</label>
               </div>
               <div className="mb-4 form-floating">
-                <input type="password" className="form-control" name="password" placeholder="Password" id="password" />
+                <input type="password" className="form-control" name="password" placeholder="Password" id="password" autoComplete='on'/>
                 <label for="password" className="form-label">Password</label>
               </div>
               <span id="message"></span>

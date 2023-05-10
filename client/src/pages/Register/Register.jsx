@@ -1,8 +1,13 @@
 import React from 'react';
 import './register.css';
+import { useState } from 'react';
 // import './scripts.js';
 import { Link } from "react-router-dom";
 function Register() {
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <div className="body">
       <div className="container">
@@ -20,20 +25,21 @@ function Register() {
           <form action="#">
             <div className="mb-4">
               <div className="mb-4 form-floating">
-                <input type="email" className="form-control" name="email" placeholder="Email" id="email" />
+                <input type="email" className="form-control" name="email" placeholder="Email" id="email" autoComplete='on' onChange={()=>setEmail}/>
+                {console.log(email)}
                 <label for="email" className="form-label">Email</label>
               </div>
               <div className="mb-4 form-floating">
-                <input type="text" className="form-control" name="username" placeholder="username" id="username" />
+                <input type="text" className="form-control" name="username" placeholder="username" id="username" autoComplete='off' />
                 <label for="username" className="form-label">Username</label>
               </div>
               <div className="mb-4 form-floating">
-                <input type="password" className="form-control" name="password" placeholder="Password" id="password" />
+                <input type="password" className="form-control" name="password" placeholder="Password" id="password" autoComplete='off' />
                 <label for="password" className="form-label">Password</label>
               </div>
               <div className="mb-4 form-floating">
-                <input type="password" className="form-control" name="confirm-password" placeholder="Repeat Password" id="password2" />
-                <label for="confirm-password" className="form-label">Repeat Password</label>
+                <input type="password" className="form-control" name="confirm-password" placeholder="Repeat Password" id="password2" autoComplete='off' />
+                <label for="password2" className="form-label">Repeat Password</label>
               </div>
               <span id="message"></span>
               <div className="d-grid justify-content-center align-content-center">
