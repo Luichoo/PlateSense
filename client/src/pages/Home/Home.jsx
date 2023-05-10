@@ -20,6 +20,7 @@ function Home() {
   }
   function handlertoggler() {
     setDisabled2(!disabled2);
+    console.log(disabled2);
   }
 
   const capture = useCallback(() => {
@@ -28,7 +29,7 @@ function Home() {
   }, [webcamRef]);
 
   return (
-    <Container fluid>
+    <Container fluid  style={{'height':'40rem'}}>
       <div className="d-flex flex-column justify-content-center align-items-center h-100 mt-5">
         <h2>Bienvenido ese</h2>
         <div class="switch-button">
@@ -91,6 +92,7 @@ function Home() {
               <button
                 onClick={() => {
                   setImg(null);
+                  handlertoggler();
                 }}
                 className="btn btn-dark btn-lg"
                 id="submit"
