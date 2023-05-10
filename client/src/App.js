@@ -10,7 +10,7 @@ import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Quien from "./pages/Quien/Quien";
-
+import Error from "./pages/Error/Error";
 
 const Layout = () => {
   return (
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
        path: "*",
-        element: <h1>Not Found</h1>
+        element: <Error/>
       }
     ]
   },
