@@ -1,18 +1,18 @@
 import React from 'react';
 import './register.css';
-import { useState } from 'react';
+//import { useState } from 'react';
 // import './scripts.js';
 import { Link } from "react-router-dom";
 function Register() {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
 
   return (
     <div className="body">
       <div className="container">
 
-
+      
     <div className="container mt-5 bg-primary rounded shadow w-75 mb-5">
       <div className="row align-items-stretch">
         <div className="col bg_img d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
@@ -25,8 +25,7 @@ function Register() {
           <form action="#">
             <div className="mb-4">
               <div className="mb-4 form-floating">
-                <input type="email" className="form-control" name="email" placeholder="Email" id="email" autoComplete='on' onChange={()=>setEmail}/>
-                {console.log(email)}
+                <input type="email" className="form-control" name="email" placeholder="Email" id="email" autoComplete='on'/>
                 <label for="email" className="form-label">Email</label>
               </div>
               <div className="mb-4 form-floating">

@@ -1,8 +1,10 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef,useEffect } from "react";
 import Container from "react-bootstrap/esm/Container.js";
 import Webcam from "react-webcam";
+import axios from "axios";
 import "./scripts.js";
 import "./Home.css";
+
 
 function Home() {
   const [isActive, setIsActive] = useState(false);
@@ -10,6 +12,7 @@ function Home() {
   const webcamRef = useRef(null);
   const [disabled, setDisabled] = useState(false);
   const [disabled2, setDisabled2] = useState(false);
+  const [islogged, setIslogged] = useState(false);
   const videoConstraints = {
     width: 1280,
     height: 720,
@@ -23,6 +26,33 @@ function Home() {
     console.log(disabled2);
   }
 
+  useEffect(() => {
+    const fetchLoggedStatus = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/api/auth/access", {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+        });
+  
+        console.log(response.data);
+  
+        if (response.data === true) {
+          setIslogged(true);
+        } else {
+          console.log("no");
+          setIslogged(false);
+        }
+      } catch (error) {
+        console.log("noup");
+        setIslogged(false);
+      }
+    };
+  
+    fetchLoggedStatus();
+  }, []);
+
+  console.log('logged '+islogged);
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImg(imageSrc);
@@ -30,9 +60,16 @@ function Home() {
 
   return (
     <Container fluid  style={{'height':'40rem'}}>
-      <div className="d-flex flex-column justify-content-center align-items-center h-100 mt-5">
-        <h2>Bienvenido ese</h2>
-        <div class="switch-button">
+      {(islogged === false) ? (
+        <>
+         <h1>hola</h1>
+        </>
+       
+      ):(
+
+        <div className="d-flex flex-column justify-content-center align-items-center h-100 mt-5">
+        <h2>Bienvenido {localStorage.getItem('clave')}</h2>
+        <div className="switch-button">
           <input
             onClick={() => {
               setIsActive(!isActive);
@@ -41,11 +78,11 @@ function Home() {
             type="checkbox"
             name="switch-button"
             id="switch-label"
-            class="switch-button__checkbox"
+            className="switch-button__checkbox"
             disabled={disabled2}
           ></input>
 
-          <label for="switch-label" class="switch-button__label"></label>
+          <label htmlFor="switch-label" className="switch-button__label"></label>
           <div className="h-75"></div>
         </div>
         {img === null ? (
@@ -103,6 +140,10 @@ function Home() {
           </>
         )}
       </div>
+
+
+      )}
+
     </Container>
   );
 }

@@ -1,9 +1,49 @@
 import React from 'react';
+//import { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Login.css';
+
 // import './scripts.js';
 
 function Login() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const clave = e.target.clave.value;
+    const password = e.target.password.value;
+    try{
+      console.log("hola");  
+
+          const url = "http://localhost:3001/api/auth/login";
+          const body = {
+              clave : clave,
+              password : password
+          }
+          
+          await axios.post(url, body)
+          .then(function (response) {
+
+            console.log(response);
+            if(response.status === 200){
+              window.location.href = "/";
+
+              response.data.token = localStorage.setItem('token', response.data.token);
+              //window.location.href = "/";
+              localStorage.setItem('clave', clave);
+            }
+            else{
+              console.log('Usuario o contraseña incorrectos');
+              //document.getElementById('message').innerHTML = 'Usuario o contraseña incorrectos';
+            }
+          })
+        }
+    catch(err){
+        console.log(err)
+    }
+  
+  }
+
+
   return (
     <div className="body">
       <div className="container">
@@ -18,19 +58,19 @@ function Login() {
             <h1 className="h1 display-2 p-3">PlateSense©</h1>
           </div>
           <h2 className="text-center py-5 display-6">Login</h2>
-          <form action="#">
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <div className="mb-4 form-floating">
-                <input type="text" className="form-control" name="username" placeholder="username" id="username" autoComplete='on'/>
-                <label for="username" className="form-label">Username</label>
+                <input type="text" className="form-control" name="clave" placeholder="clave ulsa" id="clave" autoComplete='off'/>
+                <label htmlFor="clave" className="form-label">Clave</label>
               </div>
               <div className="mb-4 form-floating">
                 <input type="password" className="form-control" name="password" placeholder="Password" id="password" autoComplete='on'/>
-                <label for="password" className="form-label">Password</label>
+                <label htmlFor="password" className="form-label">Password</label>
               </div>
               <span id="message"></span>
               <div className="d-grid justify-content-center align-content-center">
-                <button type="submit" className="btn btn-dark mt-4" disabled id='submit'>
+                <button type="submit" className="btn btn-dark mt-4" id='submit'>
                   Iniciar Sesión
                 </button>
               </div>
