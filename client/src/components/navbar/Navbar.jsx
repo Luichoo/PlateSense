@@ -12,7 +12,7 @@ function NavBar() {
   
   const handleLogout = () => {
     
-    localStorage.removeItem('token');
+    localStorage.clear()
     setIsLoggedIn(false);
   }
   return (
