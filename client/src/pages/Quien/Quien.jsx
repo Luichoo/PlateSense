@@ -1,7 +1,7 @@
 import React from "react";
 import companyinfo from './rdm.jpg';
-import camara from './camara.jpg';
-import placas from './placas.png';
+//import camara from './camara.jpg';
+//import placas from './placas.png';
 
 function Quien() {
     return (

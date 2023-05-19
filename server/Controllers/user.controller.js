@@ -57,7 +57,7 @@ const postUser = async(req, res, next) => {
             salt: salt,
         });
         const signed = await signToken(user._id);
-        res.status(201).send(signed);
+        res.status(201).send({token:signed,clave:user.clave});
     } catch (err) {
         res.status(500).send(err.message);
     }
