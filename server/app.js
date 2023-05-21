@@ -12,9 +12,7 @@ const allowedOrigins = [
     'http://localhost:3000',
     // Agrega más dominios permitidos aquí
   ];
-app.use(cors({
-    origin:allowedOrigins ,
-}));
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.json());
