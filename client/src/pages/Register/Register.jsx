@@ -35,6 +35,7 @@ function Register() {
 			console.log("hola");
 
 			const url = process.env.REACT_APP_API_URL+"register";
+			console.log(url);
 			const body = {
 				clave: clave,
 				password: password,

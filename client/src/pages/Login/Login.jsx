@@ -14,7 +14,7 @@ function Login() {
 		try {
 			console.log("hola");
 
-			const url = process.env.REACT_APP_API_URL_TEST+"login";
+			const url = process.env.REACT_APP_API_URL+"login";
 			console.log(url);
 			const body = {
 				clave: clave,
