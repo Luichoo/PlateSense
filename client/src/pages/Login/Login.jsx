@@ -7,7 +7,9 @@ import "./Login.css";
 // import './scripts.js';
 
 function Login() {
+
 	const handleSubmit = async (e) => {
+		
 		e.preventDefault();
 		const clave = e.target.clave.value;
 		const password = e.target.password.value;
@@ -21,7 +23,7 @@ function Login() {
 				password: password,
 			};
 
-			await axios.post(url, body).then(function (response) {
+			await axios.post(url, body, {crossDomain:true}).then(function (response) {
 				console.log(response);
 				if (response.status === 200) {
 					window.location.href = "/";

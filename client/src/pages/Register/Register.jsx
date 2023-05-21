@@ -33,7 +33,7 @@ function Register() {
 		const password = e.target.password.value;
 		try {
 			console.log("hola");
-
+			
 			const url = process.env.REACT_APP_API_URL+"register";
 			console.log(url);
 			const body = {
@@ -41,7 +41,7 @@ function Register() {
 				password: password,
 			};
 
-			await axios.post(url, body).then(function (response) {
+			await axios.post(url, body, {crossDomain:true}).then(function (response) {
 				console.log(response);
 				if (response.status === 201) {
 					window.location.href = "/";
@@ -85,7 +85,7 @@ function Register() {
 											autoComplete="off"
 											onChange={handleClaveChange}
 										/>
-										<label for="clave" className="form-label">
+										<label htmlFor="clave" className="form-label">
 											clave
 										</label>
 									</div>
@@ -108,7 +108,7 @@ function Register() {
 											autoComplete="off"
 											onChange={handlePasswordChange}
 										/>
-										<label for="password" className="form-label">
+										<label htmlFor="password" className="form-label">
 											Contraseña
 										</label>
 									</div>
@@ -122,7 +122,7 @@ function Register() {
 											autoComplete="off"
 											onChange={handleConfirmPasswordChange}
 										/>
-										<label for="password2" className="form-label">
+										<label htmlFor="password2" className="form-label">
 											Repite Contraseña
 										</label>
 									</div>

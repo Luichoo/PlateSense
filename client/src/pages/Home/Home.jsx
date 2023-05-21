@@ -29,11 +29,12 @@ function Home() {
   useEffect(() => {
     const fetchLoggedStatus = async () => {
       try {
+ 
         const response = await axios.get(process.env.REACT_APP_API_URL+"access", {
           headers: {
             Authorization: localStorage.getItem("token"),
           },
-        });
+        }, {crossDomain:true});
   
         console.log(response.data);
   
