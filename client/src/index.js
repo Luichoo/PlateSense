@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//require("dotenv").config({ path: `${__dirname}/.env` });
+console.log('process.env.REACT_APP_API_URL: ' +JSON.stringify( process.env));
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

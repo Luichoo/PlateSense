@@ -29,7 +29,7 @@ function Home() {
   useEffect(() => {
     const fetchLoggedStatus = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/auth/access", {
+        const response = await axios.get(process.env.REACT_APP_API_URL+"access", {
           headers: {
             Authorization: localStorage.getItem("token"),
           },

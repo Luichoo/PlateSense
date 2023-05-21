@@ -14,7 +14,8 @@ function Login() {
 		try {
 			console.log("hola");
 
-			const url = "http://localhost:3001/api/auth/login";
+			const url = process.env.REACT_APP_API_URL_TEST+"login";
+			console.log(url);
 			const body = {
 				clave: clave,
 				password: password,

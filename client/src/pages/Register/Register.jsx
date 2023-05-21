@@ -34,7 +34,7 @@ function Register() {
 		try {
 			console.log("hola");
 
-			const url = "http://localhost:3001/api/auth/register";
+			const url = process.env.REACT_APP_API_URL+"register";
 			const body = {
 				clave: clave,
 				password: password,
