@@ -1,27 +1,18 @@
 const Users = require('../Models/user.model');
-const mongoose = require('mongoose');
+
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const signToken = (_id) => jwt.sign({ _id }, process.env.SECRET_TOKEN);
 
-const mongostring = process.env.MONGOurl;
 
-mongoose.set('strictQuery', true);
-const db = () =>{
-    mongoose.connect(mongostring, (err) => {
-        if (err) {
-            console.log('Error connecting to MongoDB');
-        } else {
-            console.log('Connected to MongoDB');
-        }
-    });
-}
+
+
 
 const validateJwt = (req, res, next) => {
     // Obtén el token de la cabecera de autorización
     const token = req.header('Authorization');
-    console.log('token: ' + token);
+    //console.log('token: ' + token);
     if (!token) {
       return res.status(401).json(false);
     }
@@ -29,10 +20,10 @@ const validateJwt = (req, res, next) => {
     try {
       // Verificar y decodificar el token
       const decoded = jwt.verify(token, process.env.SECRET_TOKEN);
-      console.log(JSON.stringify(decoded, null, 2));
+      //console.log(JSON.stringify(decoded, null, 2));
       // Agregar el objeto decodificado al objeto de solicitud para usarlo en las rutas siguientes
       req.user = decoded;
-        console.log('req.user: ' + req.user);
+    
       // Continuar con el siguiente middleware o ruta
       next();
     } catch (error) {
@@ -41,7 +32,7 @@ const validateJwt = (req, res, next) => {
   };
   
 const postUser = async(req, res, next) => {
-    db();
+
     const { body } = req;
     try {
         const isUser = await Users.findOne({ clave: body.clave });
@@ -69,7 +60,7 @@ const getUserAccess = async(req, res, next) => {
 
 const postUserLogin = async(req, res, next) => {
     console.log('postUserLogin');
-    db();
+
     const { body } = req;
     try {
         const user = await Users.findOne({ clave: body.clave });
