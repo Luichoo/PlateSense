@@ -7,8 +7,14 @@ const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-app.use(cors());
+const allowedOrigins = [
+    process.env.REACT_APP_API_URL,
+    'http://localhost:3000',
+    // Agrega más dominios permitidos aquí
+  ];
+app.use(cors({
+    origin:allowedOrigins ,
+}));
 app.use(bodyParser.json());
 
 app.use(express.json());
