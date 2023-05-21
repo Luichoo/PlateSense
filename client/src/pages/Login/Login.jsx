@@ -24,7 +24,6 @@ function Login() {
 			};
 
 			await axios.post(url, body, {crossDomain:true}).then(function (response) {
-				console.log(response);
 				if (response.status === 200) {
 					window.location.href = "/";
 

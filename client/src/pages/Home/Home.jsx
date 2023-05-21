@@ -36,16 +36,14 @@ function Home() {
           },
         }, {crossDomain:true});
   
-        console.log(response.data);
+        //console.log(response.data);
   
         if (response.data === true) {
           setIslogged(true);
         } else {
-          console.log("no");
           setIslogged(false);
         }
       } catch (error) {
-        console.log("noup");
         setIslogged(false);
       }
     };
@@ -53,7 +51,6 @@ function Home() {
     fetchLoggedStatus();
   }, []);
 
-  console.log('logged '+islogged);
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImg(imageSrc);
@@ -62,9 +59,18 @@ function Home() {
   return (
     <Container fluid  style={{'height':'40rem'}}>
       {(islogged === false) ? (
-        <>
-         <h1>hola</h1>
-        </>
+        
+        <div className="container d-flex flex-column justify-content-center align-content-center h-100">
+          <h1 className="h1 display-2 p-3 text-center">PlateSense©</h1>
+          <div className="row align-items-stretch">
+            
+            <div className="col rounded-end p-4">
+              <h2 className="text-center py-5 display-6">Inicia sesion para continuar</h2>
+              </div>
+              </div>
+              
+        </div>
+        
        
       ):(
 
