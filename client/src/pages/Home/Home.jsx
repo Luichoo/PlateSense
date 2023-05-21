@@ -59,7 +59,9 @@ function Home() {
 
   // Si isLoading es verdadero, puedes mostrar un indicador de carga
   if (isLoading) {
-    return <div>Cargando...</div>;
+    return <div className="container d-flex flex-column justify-content-center align-content-center h-100">
+       <h1 className="h1 display-2 p-3 text-center">Cargando...</h1>
+      </div>;
   }
 
   return (
