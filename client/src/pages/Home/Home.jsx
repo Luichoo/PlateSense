@@ -129,7 +129,7 @@ function Home() {
             </>
           ) : (
             <>
-              <div className="img-container mt-4 h-100">
+              <div className="img-container mt-4 wc-image">
                 <img src={img} alt="screenshot" className="wc-image" />
               </div>
 
