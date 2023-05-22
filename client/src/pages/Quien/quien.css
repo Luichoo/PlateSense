@@ -1,0 +1,19 @@
+
+    .wc-image {
+      max-width: 100%;
+      max-height: 100%;
+      background-color: #000;
+    }
+  .text{
+    width: 50%;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  @media(max-width: 768px){
+    .text{
+      width: 100%;
+    }
+  }
+    
+  

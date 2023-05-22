@@ -9,7 +9,7 @@ import NavBar from "./components/navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
-import Quien from "./pages/Quien/Quien";
+import Quien from "./pages/Quien/quien";
 import Error from "./pages/Error/Error";
 
 const Layout = () => {
