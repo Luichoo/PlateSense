@@ -63,7 +63,7 @@ function Home() {
 
   // Si isLoading es verdadero, puedes mostrar un indicador de carga
   if (isLoading) {
-    return <div className="container-fluid d-flex flex-column justify-content-center align-content-center"  style={{ height: "40rem" }}>
+    return <div className="container-fluid d-flex flex-column justify-content-center align-content-center"  style={{ height: "50rem" }}>
        <h1 className="h1 display-2 p-3 text-center">Cargando...</h1>
       </div>;
   }
