@@ -130,7 +130,7 @@ function Home() {
           ) : (
             <>
               <div className="img-container mt-4 wc-image">
-                <img src={img} alt="screenshot" className="wc-image" />
+                <img src={img} alt="screenshot" className="" />
               </div>
 
               <div className="btn-container mt-4 mb-5" style={{ marginTop: "1px" }}>
