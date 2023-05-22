@@ -69,7 +69,7 @@ function Home() {
   }
 
   return (
-    <Container fluid style={{ height: "40rem" }}>
+    <Container fluid style={{ height: "50rem" }}>
       {islogged === false ? (
         <div className="container d-flex flex-column justify-content-center align-content-center h-100">
           <h1 className="h1 display-2 p-3 text-center">PlateSense©</h1>
