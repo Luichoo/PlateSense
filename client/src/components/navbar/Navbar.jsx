@@ -41,7 +41,7 @@ function NavBar() {
             <>
         <div >
 
-          <Nav.Link eventkey={5} as={Link} to='/login' className="r-nav" onClick={()=>{handleLogout()}}>Logout</Nav.Link>
+          <Nav.Link eventkey={5} as={Link} to='/login' className="r-nav" onClick={handleLogout}>Logout</Nav.Link>
 
         </div>
             </>

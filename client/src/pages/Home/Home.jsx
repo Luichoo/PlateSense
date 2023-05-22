@@ -1,11 +1,13 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, { useState, useCallback, useRef, useEffect} from "react";
 import Container from "react-bootstrap/Container";
 import Webcam from "react-webcam";
+//import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./scripts.js";
 import "./Home.css";
 
 function Home() {
+  //const history = useHistory();
   const [isActive, setIsActive] = useState(false);
   const [img, setImg] = useState(null);
   const webcamRef = useRef(null);
@@ -40,9 +42,11 @@ function Home() {
         if (response.data === true) {
           setIslogged(true);
         } else {
+          localStorage.clear();
           setIslogged(false);
         }
       } catch (error) {
+        localStorage.clear()
         setIslogged(false);
       } finally {
         setIsLoading(false); // Se establece isLoading en falso una vez que se ha completado la carga
