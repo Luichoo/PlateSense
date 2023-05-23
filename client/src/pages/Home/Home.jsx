@@ -46,9 +46,12 @@ function Home() {
 		const imgfile = document.getElementById("img_upload");
 		const toggle = document.getElementById("switch-label");
     console.log(toggle.checked);
-		if (toggle.checked!==false && imgfile.value !== null) {
-			setChecked(!checked)
-			setDisabled2(!disabled2);
+		if (toggle.checked===true) {
+      
+        setChecked(false);
+        setDisabled2(true);
+        setIsActive(false);
+        //setDisabled(false);
 		}
 	}
 	useEffect(() => {
@@ -96,6 +99,7 @@ function Home() {
 		);
 	}
 
+
 	return (
 		<Container fluid style={{ height: "50rem" }}>
 			{islogged === false ? (
@@ -126,6 +130,7 @@ function Home() {
 							checked={checked}
 							className="switch-button__checkbox"
 							disabled={disabled2}
+              
 						/>
 						<label
 							htmlFor="switch-label"
@@ -192,7 +197,10 @@ function Home() {
 										onClick={() => {
 											setImg(null);
 											setfile();
-											//if (!checked){
+											if(!checked){
+                        handlerWCB();
+                      }
+
 											handlertoggler();
 											//}//
 										}}
@@ -208,7 +216,10 @@ function Home() {
 										onClick={() => {
 											setImg(null);
 											setfile();
-											//if (!checked){
+											// if (!checked){
+                      //   setChecked(!checked)
+                      // }
+                      
 											handlertoggler();
 											//}//
 										}}
