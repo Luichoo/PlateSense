@@ -45,8 +45,9 @@ function Home() {
 		console.log("disablebuttonwc");
 		const imgfile = document.getElementById("img_upload");
 		const toggle = document.getElementById("switch-label");
-		if (toggle.checked && imgfile.value != null) {
-			setChecked(!checked);
+    console.log(toggle.checked);
+		if (toggle.checked!==false && imgfile.value !== null) {
+			setChecked(!checked)
 			setDisabled2(!disabled2);
 		}
 	}
