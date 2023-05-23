@@ -28,30 +28,23 @@ function Home() {
 
 	function handlertoggler() {
 		setDisabled2(!disabled2);
-		console.log(disabled2);
 	}
 	function getFile() {
-		console.log("getfile");
 		const imgfile = document.getElementById("img_upload");
 		const urlimg = URL.createObjectURL(imgfile.files[0]);
 		setImg(urlimg);
 	}
 	function setfile() {
-		console.log("setfile");
 		const imgfile = document.getElementById("img_upload");
 		imgfile.value = null;
 	}
 	function disablebuttonwc() {
-		console.log("disablebuttonwc");
-		const imgfile = document.getElementById("img_upload");
 		const toggle = document.getElementById("switch-label");
-    console.log(toggle.checked);
-		if (toggle.checked===true) {
-      
-        setChecked(false);
-        setDisabled2(true);
-        setIsActive(false);
-        //setDisabled(false);
+		if (toggle.checked === true) {
+			setChecked(false);
+			setDisabled2(true);
+			setIsActive(false);
+			//setDisabled(false);
 		}
 	}
 	useEffect(() => {
@@ -99,7 +92,6 @@ function Home() {
 		);
 	}
 
-
 	return (
 		<Container fluid style={{ height: "50rem" }}>
 			{islogged === false ? (
@@ -116,7 +108,7 @@ function Home() {
 			) : (
 				<div className="d-flex flex-column justify-content-center align-items-center h-100 mt-5">
 					<h2 className="mb-3">Bienvenido {localStorage.getItem("clave")}</h2>
-          <p className="text-center lead">Pon una placa para comenzar</p>
+					<p className="text-center lead">Pon una placa para comenzar</p>
 					<div className="switch-button mb-5">
 						<input
 							onClick={() => {
@@ -130,7 +122,6 @@ function Home() {
 							checked={checked}
 							className="switch-button__checkbox"
 							disabled={disabled2}
-              
 						/>
 						<label
 							htmlFor="switch-label"
@@ -198,11 +189,7 @@ function Home() {
 										onClick={() => {
 											setImg(null);
 											setfile();
-											
-                       						 handlerWCB();
-                      
-
-
+											handlerWCB();
 											handlertoggler();
 											//}//
 										}}
@@ -219,9 +206,9 @@ function Home() {
 											setImg(null);
 											setfile();
 											// if (!checked){
-                      //   setChecked(!checked)
-                      // }
-                      
+											//   setChecked(!checked)
+											// }
+
 											handlertoggler();
 											//}//
 										}}
