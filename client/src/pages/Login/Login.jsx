@@ -1,5 +1,5 @@
 import React from "react";
-//import { useState } from 'react';
+import { useState } from 'react';
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Login.css";
@@ -8,6 +8,14 @@ import "./Login.css";
 
 function Login() {
 
+	const [existe, setExiste] = useState(false);
+	function handlePasswordChange(event) {
+		setExiste(false);
+	}
+	function handleClaveChange(event) {
+		setExiste(false);
+		
+	}
 	const handleSubmit = async (e) => {
 		
 		e.preventDefault();
@@ -35,11 +43,13 @@ function Login() {
 					localStorage.setItem("clave", clave);
 				} else {
 					console.log("Usuario o contraseña incorrectos");
+					setExiste(true);
 					//document.getElementById('message').innerHTML = 'Usuario o contraseña incorrectos';
 				}
 			});
 		} catch (err) {
 			console.log(err);
+			setExiste(true);
 		}
 	};
 
@@ -63,12 +73,22 @@ function Login() {
 											name="clave"
 											placeholder="clave ulsa"
 											id="clave"
+											onChange={handleClaveChange}
 											autoComplete="off"
 										/>
 										<label htmlFor="clave" className="form-label">
 											Clave
 										</label>
 									</div>
+									{existe ? (
+										<div className="container pb-3">
+										<span id="message" className="text-danger text-center">
+											Nombre de usuario y/o contraseña incorrectos
+											</span>
+											</div>
+											) : (
+												""
+												)}
 									<div className="mb-4 form-floating">
 										<input
 											type="password"
@@ -76,8 +96,10 @@ function Login() {
 											name="password"
 											placeholder="Password"
 											id="password"
+											onChange={handlePasswordChange}
 											autoComplete="on"
 										/>
+										
 										<label htmlFor="password" className="form-label">
 											Password
 										</label>
