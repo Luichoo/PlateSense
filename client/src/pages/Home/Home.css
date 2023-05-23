@@ -47,7 +47,10 @@
 
   .bg-wc{
     
-    background-color: black;
+    
     height: 338px;
     width: 600px;
+  }
+  .btn-container{
+    max-width: 20rem;
   }
