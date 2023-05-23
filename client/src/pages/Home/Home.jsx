@@ -169,6 +169,7 @@ function Home() {
 									onClick={() => {
 										capture();
 										handlertoggler();
+										disablebuttonwc();
 									}}
 									className="btn btn-dark btn-lg"
 									id="submit"
@@ -197,9 +198,10 @@ function Home() {
 										onClick={() => {
 											setImg(null);
 											setfile();
-											if(!checked){
-                        handlerWCB();
-                      }
+											
+                       						 handlerWCB();
+                      
+
 
 											handlertoggler();
 											//}//
