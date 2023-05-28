@@ -4,7 +4,7 @@ import {
   RouterProvider,
   Outlet,
 } from "react-router-dom";
-import Footer from "./components/footer";
+import Footer from "./components/footer/footer";
 import NavBar from "./components/navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";

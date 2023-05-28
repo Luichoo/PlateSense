@@ -3,17 +3,17 @@ import { faBook, faUserEdit, faShippingFast, faBackspace} from '@fortawesome/fre
 // import '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 // import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import './footer.css';
 
 function Footer() {
   return (
-    <footer className="bg-dark text-center text-lg-start text-white mt-auto">
+    <footer className="bg-dark text-center text-lg-start text-white mt-auto justify-content">
       <div className="container p-4">
-        <div className="row mt-4">
-        <div className="col-lg-3 col-md-6 mb-4 mb-md-0 "></div>
-          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <div className="row mt-4 justify-content-center">
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ps-5 ms-5">
             <h5 className="text-uppercase">PlateSense</h5>
 
-            <ul className="list-unstyled mb-0">
+            <ul className="list-unstyled mb-0 ps-5">
               <li>
                 <Link to="/register" className="text-white"><FontAwesomeIcon icon={faBook} className="fa-fw me-2" />Registrate</Link>
               </li>
@@ -23,7 +23,7 @@ function Footer() {
             </ul>
           </div>
           
-          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ms-5 ps5-5">
             <h5 className="text-uppercase">{'‎'}</h5>
             <ul className="list-unstyled">
 
@@ -37,7 +37,7 @@ function Footer() {
 
             </ul>
           </div>
-          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 "></div>
+    
         </div>
       </div>
 
