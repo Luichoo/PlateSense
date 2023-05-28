@@ -20,7 +20,7 @@ function Home() {
 	const [islogged, setIslogged] = useState(false);
 	const [isLoading, setIsLoading] = useState(true); // Nuevo estado para indicar si la carga está en curso
 	const videoConstraints = {
-		width: 1280,
+		width: 880,
 		height: 720,
 		facingMode: "user",
 	};
@@ -96,7 +96,7 @@ function Home() {
 	}
 
 	return (
-		<Container fluid style={{ height: "70rem" }}>
+		<Container fluid style={{ height: "80rem" }}>
 			{islogged === false ? (
 				<div className="container d-flex flex-column justify-content-center align-content-center h-100">
 					<h1 className="h1 display-2 p-3 text-center">PlateSense©</h1>
@@ -109,7 +109,7 @@ function Home() {
 					</div>
 				</div>
 			) : (
-				<div className="d-flex flex-column justify-content-center align-items-center h-100 mt-5">
+				<div className="d-flex flex-column align-items-center h-100 mt-5">
 					<h2 className="mb-3">Bienvenido {localStorage.getItem("clave")}</h2>
 					<p className="text-center lead">Pon una placa para comenzar</p>
 					<div className="switch-button mb-5">
@@ -193,8 +193,10 @@ function Home() {
 										onClick={() => {
 											setImg(null);
 											setfile();
-											handlerWCB();
+											
 											handlertoggler();
+											setDisabled2(false)
+											setDisabled(false);
 											//}//
 										}}
 										className="btn btn-dark btn-lg"
