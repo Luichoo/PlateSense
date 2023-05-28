@@ -74,7 +74,7 @@ function Plates() {
 					<button
 						className="btn btn-dark btn-lg"
 						id="submit"
-						disabled={items.length === 3 || placa.length < 8}>
+						disabled={items.length === 3 || placa.length < 6}>
 						Añadir placa
 					</button>
 				</div>
