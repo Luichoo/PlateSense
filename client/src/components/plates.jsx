@@ -3,10 +3,17 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
+
 function Plates() {
 	const [items, setItems] = useState([]);
 	const [placa, setPlaca] = useState("");
+    const [mensaje, setMensaje] = useState("");
+    
+
+
+
 	const handdlerPlaca = (e) => {
+        setMensaje("");
 		setPlaca(e.target.value.toUpperCase());
 	};
 	useEffect(() => {
@@ -22,7 +29,9 @@ function Plates() {
 			});
 		};
 		getItems();
+
 	}, []);
+
 
 	const addPlates = async (e) => {
 		e.preventDefault();
@@ -37,26 +46,24 @@ function Plates() {
 			.post(url, body, { crossDomain: true })
 			.then(function (response) {
 				console.log(response);
-				if (response.status === 200) {
+				if (response.status === 201) {
 					localStorage.setItem("placas", response.data.plates);
 					setItems(response.data.plates);
-				} else {
-					console.log("Error");
+				} else if (response.status === 200) {
+                    console.log(response.data.message);
+					setMensaje(response.data.message);
 				}
 			});
 	};
 	const deletePlates = async (plate) => {
-        console.log(plate);
 		const url = process.env.REACT_APP_API_URL + "plates/deleteplate";
 		const body = {
 			clave: localStorage.getItem("clave"),
 			placa: plate,
 		};
-        console.log(body);
 		await axios
 			.post(url, body, { crossDomain: true })
 			.then(function (response) {
-                console.log(response.data.plates);
 				if (response.status === 200) {
 					setItems(response.data.plates);
 				} else {
@@ -66,7 +73,7 @@ function Plates() {
 	};
 
 	return (
-		<div>
+		<div className="bg-white ps-5 pe-5 pb-3 pt-3 mb-5 rounded-top-circle shadow-lg">
 			<form onSubmit={addPlates}>
 				<div
 					className="container mt-4 mb-5 d-flex justify-content-center"
@@ -78,7 +85,8 @@ function Plates() {
 						Añadir placa
 					</button>
 				</div>
-				<div className="container pb-5">
+
+				<div className="container pb-3">
 					<input
 						className="form-control"
 						type="text"
@@ -90,8 +98,11 @@ function Plates() {
                         value={placa}
 						onChange={handdlerPlaca}></input>
 				</div>
+                <div className="Container d-flex flex-column justify-content-center  align-content-center" >
+                    <p className="text-danger text-center " style={{fontWeight:"bold"}}>{mensaje}</p>
+                </div>
 			</form>
-			<div className="container">
+			<div className="container mb-5">
 				<ul className="list-group " id="lista">
 					{items.map((item, index) => (
 						<li
