@@ -5,7 +5,6 @@ import axios from "axios";
 // import './scripts.js';
 import { Link } from "react-router-dom";
 
-
 function Register() {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -33,30 +32,33 @@ function Register() {
 		const password = e.target.password.value;
 		try {
 			console.log("hola");
-			
-			const url = process.env.REACT_APP_API_URL+"register";
+
+			const url = process.env.REACT_APP_API_URL + "auth/register";
 			console.log(url);
 			const body = {
 				clave: clave,
 				password: password,
 			};
 
-			await axios.post(url, body, {crossDomain:true}).then(function (response) {
-				console.log(response);
-				if (response.status === 201) {
-					window.location.href = "/";
+			await axios
+				.post(url, body, { crossDomain: true })
+				.then(function (response) {
+					console.log(response);
+					if (response.status === 201) {
+						window.location.href = "/";
 
-					response.data.token = localStorage.setItem(
-						"token",
-						response.data.token
-					);
-					//window.location.href = "/";
-					localStorage.setItem("clave", clave);
-				} else {
-					setExiste(true);
-					//document.getElementById('message').innerHTML = 'Usuario o contraseña incorrectos';
-				}
-			});
+						response.data.token = localStorage.setItem(
+							"token",
+							response.data.token
+						);
+						//window.location.href = "/";
+						localStorage.setItem("clave", clave);
+						localStorage.setItem("placas", response.data.placas);
+					} else {
+						setExiste(true);
+						//document.getElementById('message').innerHTML = 'Usuario o contraseña incorrectos';
+					}
+				});
 		} catch (err) {
 			console.log(err);
 			setExiste(true);
@@ -91,13 +93,13 @@ function Register() {
 									</div>
 									{existe ? (
 										<div className="container pb-3">
-										<span id="message" className="text-danger text-center">
-											El nombre de usuario ya existe
+											<span id="message" className="text-danger text-center">
+												El nombre de usuario ya existe
 											</span>
-											</div>
-											) : (
-												""
-												)}
+										</div>
+									) : (
+										""
+									)}
 									<div className="mb-4 form-floating ">
 										<input
 											type="password"

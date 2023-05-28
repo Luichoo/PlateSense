@@ -1,10 +1,13 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import Container from "react-bootstrap/Container";
+
 import Webcam from "react-webcam";
 //import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./scripts.js";
 import "./Home.css";
+
+import Plates from "../../components/plates.jsx";
 
 function Home() {
 	//const history = useHistory();
@@ -51,7 +54,7 @@ function Home() {
 		const fetchLoggedStatus = async () => {
 			try {
 				const response = await axios.get(
-					process.env.REACT_APP_API_URL + "access",
+					process.env.REACT_APP_API_URL + "auth/access",
 					{
 						headers: {
 							Authorization: localStorage.getItem("token"),
@@ -93,7 +96,7 @@ function Home() {
 	}
 
 	return (
-		<Container fluid style={{ height: "50rem" }}>
+		<Container fluid style={{ height: "70rem" }}>
 			{islogged === false ? (
 				<div className="container d-flex flex-column justify-content-center align-content-center h-100">
 					<h1 className="h1 display-2 p-3 text-center">PlateSense©</h1>
@@ -220,6 +223,7 @@ function Home() {
 							</div>
 						</>
 					)}
+					<Plates />
 				</div>
 			)}
 		</Container>

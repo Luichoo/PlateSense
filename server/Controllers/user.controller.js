@@ -46,7 +46,7 @@ const postUser = async(req, res, next) => {
             salt: salt,
         });
         const signed = await signToken(user._id);
-        res.status(201).send({token:signed,clave:user.clave});
+        res.status(201).send({token:signed,clave:user.clave, placas:user.placas});
     } catch (err) {
         res.status(500).send(err.message);
     }
@@ -71,7 +71,7 @@ const postUserLogin = async(req, res, next) => {
         }
         const signed = await signToken(user._id);
         console.log('body.clave: ' + body.clave);
-        res.status(200).json({token:signed, clave:body.clave});
+        res.status(200).json({token:signed, clave:body.clave, placas: user.placas});
     } catch (err) {
         res.status(500).send(err.message);
     }

@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const placesRoutes = require("./Routes/places.routes");
+const platesRoutes = require("./Routes/plates.routes");
 const cors = require("cors");
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 
 app.use(express.json());
 app.use("/api/auth", placesRoutes);
+app.use("/api/plates", platesRoutes);
 
 const mongostring = process.env.MONGOurl;
 mongoose.set('strictQuery', true);

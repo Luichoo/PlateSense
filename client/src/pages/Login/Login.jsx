@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Login.css";
@@ -7,46 +7,46 @@ import "./Login.css";
 // import './scripts.js';
 
 function Login() {
-
 	const [existe, setExiste] = useState(false);
 	function handlePasswordChange(event) {
 		setExiste(false);
 	}
 	function handleClaveChange(event) {
 		setExiste(false);
-		
 	}
 	const handleSubmit = async (e) => {
-		
 		e.preventDefault();
 		const clave = e.target.clave.value;
 		const password = e.target.password.value;
 		try {
 			console.log("hola");
 
-			const url = process.env.REACT_APP_API_URL+"login";
+			const url = process.env.REACT_APP_API_URL + "auth/login";
 			console.log(url);
 			const body = {
 				clave: clave,
 				password: password,
 			};
 
-			await axios.post(url, body, {crossDomain:true}).then(function (response) {
-				if (response.status === 200) {
-					window.location.href = "/";
+			await axios
+				.post(url, body, { crossDomain: true })
+				.then(function (response) {
+					if (response.status === 200) {
+						window.location.href = "/";
 
-					response.data.token = localStorage.setItem(
-						"token",
-						response.data.token
-					);
-					//window.location.href = "/";
-					localStorage.setItem("clave", clave);
-				} else {
-					console.log("Usuario o contraseña incorrectos");
-					setExiste(true);
-					//document.getElementById('message').innerHTML = 'Usuario o contraseña incorrectos';
-				}
-			});
+						response.data.token = localStorage.setItem(
+							"token",
+							response.data.token
+						);
+						//window.location.href = "/";
+						localStorage.setItem("clave", clave);
+						localStorage.setItem("placas", response.data.placas);
+					} else {
+						console.log("Usuario o contraseña incorrectos");
+						setExiste(true);
+						//document.getElementById('message').innerHTML = 'Usuario o contraseña incorrectos';
+					}
+				});
 		} catch (err) {
 			console.log(err);
 			setExiste(true);
@@ -82,13 +82,13 @@ function Login() {
 									</div>
 									{existe ? (
 										<div className="container pb-3">
-										<span id="message" className="text-danger text-center">
-											Nombre de usuario y/o contraseña incorrectos
+											<span id="message" className="text-danger text-center">
+												Nombre de usuario y/o contraseña incorrectos
 											</span>
-											</div>
-											) : (
-												""
-												)}
+										</div>
+									) : (
+										""
+									)}
 									<div className="mb-4 form-floating">
 										<input
 											type="password"
@@ -99,7 +99,7 @@ function Login() {
 											onChange={handlePasswordChange}
 											autoComplete="on"
 										/>
-										
+
 										<label htmlFor="password" className="form-label">
 											Password
 										</label>
