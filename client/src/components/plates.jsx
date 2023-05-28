@@ -7,7 +7,7 @@ function Plates() {
 	const [items, setItems] = useState([]);
 	const [placa, setPlaca] = useState("");
 	const handdlerPlaca = (e) => {
-		setPlaca(e.target.value);
+		setPlaca(e.target.value.toUpperCase());
 	};
 	useEffect(() => {
 		const getItems = async () => {
@@ -27,6 +27,7 @@ function Plates() {
 	const addPlates = async (e) => {
 		e.preventDefault();
 		const url = process.env.REACT_APP_API_URL + "plates/addplate";
+        console.log(placa);
 		const body = {
 			clave: localStorage.getItem("clave"),
 			placa: placa,
@@ -73,7 +74,7 @@ function Plates() {
 					<button
 						className="btn btn-dark btn-lg"
 						id="submit"
-						disabled={items.length === 3 || placa.length <= 6}>
+						disabled={items.length === 3 || placa.length < 8}>
 						Añadir placa
 					</button>
 				</div>
@@ -85,6 +86,8 @@ function Plates() {
 						name="placa"
 						id="placa"
 						autoComplete="off"
+                        maxLength="8"
+                        value={placa}
 						onChange={handdlerPlaca}></input>
 				</div>
 			</form>
