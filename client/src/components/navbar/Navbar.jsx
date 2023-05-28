@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,8 +8,12 @@ import logo from './logo.png';
 import './Navbar.css';
 //import axios from "axios";
 function NavBar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') !== null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   
+  useEffect(() => {
+    setIsLoggedIn(localStorage.getItem('token') !== null);
+  }, [isLoggedIn]);
+
   const handleLogout = () => {
     
     localStorage.clear()
