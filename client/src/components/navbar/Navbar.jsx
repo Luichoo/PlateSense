@@ -8,7 +8,7 @@ import logo from './logo.png';
 import './Navbar.css';
 //import axios from "axios";
 function NavBar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') !== null);
   
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem('token') !== null);
