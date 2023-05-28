@@ -122,6 +122,7 @@ function Home() {
 							type="checkbox"
 							name="switch-button"
 							id="switch-label"
+							onChange={() => {}}
 							checked={checked}
 							className="switch-button__checkbox"
 							disabled={disabled2}
