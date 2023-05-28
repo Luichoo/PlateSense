@@ -1,12 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./Login.css";
+
 
 // import './scripts.js';
 
 function Login() {
+	const Navigate = useNavigate();
 	const [existe, setExiste] = useState(false);
 	function handlePasswordChange(event) {
 		setExiste(false);
@@ -20,7 +22,7 @@ function Login() {
 		const password = e.target.password.value;
 		try {
 			console.log("hola");
-
+			
 			const url = process.env.REACT_APP_API_URL + "auth/login";
 			console.log(url);
 			const body = {
@@ -32,7 +34,8 @@ function Login() {
 				.post(url, body, { crossDomain: true })
 				.then(function (response) {
 					if (response.status === 200) {
-						window.location.href = "/";
+						
+						Navigate("/");
 
 						response.data.token = localStorage.setItem(
 							"token",
