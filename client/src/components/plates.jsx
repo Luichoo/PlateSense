@@ -9,7 +9,16 @@ function Plates() {
 	const [placa, setPlaca] = useState("");
     const [mensaje, setMensaje] = useState("");
     
+const handdlerMsj = (e,tipo) => {
+    const msj = document.getElementById("msj");
+    if(tipo === 1){
+        msj.className = "text-success text-center"
+    }else{
+    msj.className = "text-danger text-center"
+    }
+    setMensaje(e);
 
+};
 
 
 	const handdlerPlaca = (e) => {
@@ -49,11 +58,14 @@ function Plates() {
 				if (response.status === 201) {
 					localStorage.setItem("placas", response.data.plates);
 					setItems(response.data.plates);
+                    handdlerMsj(response.data.message,1);
 				} else if (response.status === 200) {
                     console.log(response.data.message);
-					setMensaje(response.data.message);
+                    handdlerMsj(response.data.message,2);
 				}
+               
 			});
+
 	};
 	const deletePlates = async (plate) => {
 		const url = process.env.REACT_APP_API_URL + "plates/deleteplate";
@@ -68,7 +80,9 @@ function Plates() {
 					setItems(response.data.plates);
 				} else {
 					console.log("Error");
+
 				}
+                handdlerMsj(response.data.message,2);
 			});
 	};
 
@@ -90,7 +104,7 @@ function Plates() {
 					<input
 						className="form-control"
 						type="text"
-						placeholder="Ingrese placa"
+						placeholder="Ingrese placa (max 3)"
 						name="placa"
 						id="placa"
 						autoComplete="off"
@@ -99,7 +113,7 @@ function Plates() {
 						onChange={handdlerPlaca}></input>
 				</div>
                 <div className="Container d-flex flex-column justify-content-center  align-content-center" >
-                    <p className="text-danger text-center " style={{fontWeight:"bold"}}>{mensaje}</p>
+                    <p className="text-danger text-center " style={{fontWeight:"bold"}} id="msj">{mensaje}</p>
                 </div>
 			</form>
 			<div className="container mb-5">
