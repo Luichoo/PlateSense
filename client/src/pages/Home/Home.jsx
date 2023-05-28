@@ -187,7 +187,7 @@ function Home() {
 							</div>
 							<div className="container d-flex justify-content-around btn-container">
 								<div
-									className="btn-container mt-4 mb-5"
+									className="btn-container mt-4 mb-5 me-1"
 									style={{ marginTop: "1px" }}>
 									<button
 										onClick={() => {
@@ -199,7 +199,7 @@ function Home() {
 										}}
 										className="btn btn-dark btn-lg"
 										id="submit">
-										Repetir
+										Repetir foto
 									</button>
 								</div>
 								<div

@@ -6,22 +6,22 @@ const addPlate = async(req, res, next) => {
     try {
         const user = await User.findOne({ clave: body.clave });
         if (!user) {
-            return res.status(403).json({ message: 'User does not exist' });
+            return res.status(200).json({ message: 'User does not exist' });
         }
         console.log('user: ' + user);
         //buscar dentro de la lista del esquema si la placa existe
         const isPlate = user.placas.find(plate => plate === body.placa);
         if (isPlate) {
-            return res.status(403).json({ message: 'Plate already exists' });
+            return res.status(200).json({ message: 'Plate already exists' });
         }
         //agregar la placa a la lista del esquema
         if (user.placas.length >= 3) {
-            return res.status(403).json({ message: 'Solo puedes meter hasta 3 placas' });
+            return res.status(200).json({ message: 'Solo puedes meter hasta 3 placas' });
         }
         user.placas.push(body.placa);
         //guardar el usuario
         await user.save();
-        res.status(200).json({ plates: user.placas });
+        res.status(201).json({ plates: user.placas });
     } catch (err) {
         res.status(500).send(err.message);
     }
