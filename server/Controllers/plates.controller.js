@@ -12,7 +12,7 @@ const addPlate = async(req, res, next) => {
         //buscar dentro de la lista del esquema si la placa existe
         const isPlate = user.placas.find(plate => plate === body.placa);
         if (isPlate) {
-            return res.status(200).json({ message: 'Plate already exists' });
+            return res.status(200).json({ message: 'Placa ya existente' });
         }
         //agregar la placa a la lista del esquema
         if (user.placas.length >= 3) {
@@ -21,7 +21,7 @@ const addPlate = async(req, res, next) => {
         user.placas.push(body.placa);
         //guardar el usuario
         await user.save();
-        res.status(201).json({ plates: user.placas });
+        res.status(201).json({ plates: user.placas, message: 'Placa agregada'});
     } catch (err) {
         res.status(500).send(err.message);
     }
@@ -62,7 +62,7 @@ const deletePlate = async(req, res, next) => {
         //buscar dentro de la lista del esquema si la placa existe
         const isPlate = user.placas.find(plate => plate === body.placa);
         if (!isPlate) {
-            return res.status(403).json({ message: 'Plate does not exist' });
+            return res.status(403).json({ message: 'Placa no existente' });
         }
         //elimina la placa que recibe del body.placa de la lista del esquema
         user.placas = user.placas.filter(plate => plate !== body.placa);
@@ -71,7 +71,7 @@ const deletePlate = async(req, res, next) => {
         //guardar el usuario
         await user.save();
         console.log('user: ' + user);
-        res.status(200).json({ plates: user.placas });
+        res.status(200).json({ plates: user.placas , message: 'Placa eliminada'});
     } 
     catch (err) {
         res.status(500).send(err.message);
