@@ -10,10 +10,10 @@ function Footer() {
     <footer className="bg-dark text-center text-lg-start text-white mt-auto justify-content">
       <div className="container p-4">
         <div className="row mt-4 justify-content-center">
-          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ps-5 ms-5">
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
             <h5 className="text-uppercase">PlateSense</h5>
 
-            <ul className="list-unstyled mb-0 ps-5">
+            <ul className="list-unstyled mb-0 ">
               <li>
                 <Link to="/register" className="text-white"><FontAwesomeIcon icon={faBook} className="fa-fw me-2" />Registrate</Link>
               </li>
@@ -23,7 +23,7 @@ function Footer() {
             </ul>
           </div>
           
-          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ms-5 ps5-5">
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
             <h5 className="text-uppercase">{'‎'}</h5>
             <ul className="list-unstyled">
 
