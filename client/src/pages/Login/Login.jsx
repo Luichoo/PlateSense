@@ -1,14 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 
 // import './scripts.js';
 
 function Login() {
-	const Navigate = useNavigate();
 	const [existe, setExiste] = useState(false);
 	function handlePasswordChange() {
 		setExiste(false);
@@ -35,13 +34,13 @@ function Login() {
 				.then(function (response) {
 					if (response.status === 200) {
 						
-						Navigate("/");
+						//Navigate("/");
 
 						response.data.token = localStorage.setItem(
 							"token",
 							response.data.token
 						);
-						//window.location.href = "/";
+						window.location.href = "/";
 						localStorage.setItem("clave", clave);
 						localStorage.setItem("placas", response.data.placas);
 					} else {

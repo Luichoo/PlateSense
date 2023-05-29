@@ -3,10 +3,10 @@ import "./register.css";
 import axios from "axios";
 //import { useState } from 'react';
 // import './scripts.js';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Register() {
-	const Navigate = useNavigate();
+
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [clavef, setClave] = useState("");
@@ -46,13 +46,13 @@ function Register() {
 				.then(function (response) {
 					console.log(response);
 					if (response.status === 201) {
-						Navigate("/");
+						//Navigate("/");
 
 						response.data.token = localStorage.setItem(
 							"token",
 							response.data.token
 						);
-						//window.location.href = "/";
+						window.location.href = "/";
 						localStorage.setItem("clave", clave);
 						localStorage.setItem("placas", response.data.placas);
 					} else {

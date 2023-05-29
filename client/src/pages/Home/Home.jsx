@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Webcam from "react-webcam";
 //import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "./scripts.js";
+
 import "./Home.css";
 
 import Plates from "../../components/plates.jsx";
