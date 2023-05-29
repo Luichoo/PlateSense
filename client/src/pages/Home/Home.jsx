@@ -96,8 +96,9 @@ function Home() {
 	}
 
 	return (
-		<Container fluid style={{ height: "80rem" }}>
+		<Container fluid>
 			{islogged === false ? (
+				<Container fluid style={{ height: "40rem" }}>
 				<div className="container d-flex flex-column justify-content-center align-content-center h-100">
 					<h1 className="h1 display-2 p-3 text-center">PlateSense©</h1>
 					<div className="row align-items-stretch">
@@ -108,7 +109,9 @@ function Home() {
 						</div>
 					</div>
 				</div>
+			</Container>
 			) : (
+				<Container fluid style={{ height: "40rem" }}>
 				<div className="d-flex flex-column align-items-center h-100 mt-5">
 					<h2 className="mb-3">Bienvenido {localStorage.getItem("clave")}</h2>
 					<p className="text-center lead">Pon una placa para comenzar</p>
@@ -228,6 +231,7 @@ function Home() {
 					)}
 					<Plates />
 				</div>
+			</Container>
 			)}
 		</Container>
 	);
