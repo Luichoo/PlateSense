@@ -211,13 +211,13 @@ function Home() {
 									style={{ marginTop: "1px" }}>
 									<button
 										onClick={() => {
-											setImg(null);
-											setfile();
+											// setImg(null);
+											// setfile();
 											// if (!checked){
 											//   setChecked(!checked)
 											// }
-
-											handlertoggler();
+											//funcion para mandar la foto a la api de google
+											// handlertoggler();
 											//}//
 										}}
 										className="btn btn-dark btn-lg"
