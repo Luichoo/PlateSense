@@ -10,10 +10,10 @@ import "./Login.css";
 function Login() {
 	const Navigate = useNavigate();
 	const [existe, setExiste] = useState(false);
-	function handlePasswordChange(event) {
+	function handlePasswordChange() {
 		setExiste(false);
 	}
-	function handleClaveChange(event) {
+	function handleClaveChange() {
 		setExiste(false);
 	}
 	const handleSubmit = async (e) => {
