@@ -137,7 +137,7 @@ function Home() {
 	}
 
 	return (
-		<Container fluid style={{ height: islogged ? "90rem" : "40rem" }}>
+		<Container fluid style={{ height: islogged ? "85rem" : "40rem" }}>
 			{islogged === false ? (
 				<div className="container d-flex flex-column justify-content-center align-content-center h-100">
 					<h1 className="h1 display-2 p-3 text-center">PlateSense©</h1>
@@ -189,7 +189,7 @@ function Home() {
 
 					{uplimg === false ? (
 						<>
-							<div className=" mt-4 bg-wc1 wc-image">
+							<div className=" mt-4  wc-image">
 								{isActive ? (
 									<Webcam
 										audio={false}
@@ -199,6 +199,7 @@ function Home() {
 										height={338}
 										width={600}
 										className="wc-image"
+										style={{ aspectRatio: "1 / 1" }}
 									/>
 								):(
 									<div className="container d-flex align-content-center justify-content-center bg-wc1 mt-4 wc-image">
