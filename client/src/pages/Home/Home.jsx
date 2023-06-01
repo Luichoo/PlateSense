@@ -9,10 +9,14 @@ import "./Home.css";
 
 import Plates from "../../components/plates.jsx";
 
+import no_img from "./no_img.webp";
+
+
 function Home() {
 	//const history = useHistory();
 	const [isActive, setIsActive] = useState(false);
-	const [img, setImg] = useState(null);
+	const [img, setImg] = useState(no_img);
+	const [uplimg, setUplimg] = useState(false);
 	const webcamRef = useRef(null);
 	const [checked, setChecked] = useState(false);
 	const [disabled, setDisabled] = useState(false);
@@ -23,8 +27,8 @@ function Home() {
 	const [msj, setMsj] = useState("");
 
 	const videoConstraints = {
-		width: 880,
-		height: 720,
+		width: 900,
+		height: 900,
 		facingMode: "user",
 	};
 
@@ -178,14 +182,15 @@ function Home() {
 							onChange={() => {
 								getFile();
 								disablebuttonwc();
+								setUplimg(true);
 							}}
 						/>
 					</div>
 
-					{img === null ? (
+					{uplimg === false ? (
 						<>
-							<div className="cam-container mt-4 bg-wc wc-image bg-black">
-								{isActive && (
+							<div className=" mt-4 bg-wc1 wc-image">
+								{isActive ? (
 									<Webcam
 										audio={false}
 										ref={webcamRef}
@@ -195,6 +200,17 @@ function Home() {
 										width={600}
 										className="wc-image"
 									/>
+								):(
+									<div className="container d-flex align-content-center justify-content-center bg-wc1 mt-4 wc-image">
+									<img
+										src={img}
+										alt="screenshot"
+										className="wc-image "
+										id="img-plate"
+										height={290}
+										style={{ aspectRatio: "1 / 1" }}
+									/>
+								</div>
 								)}
 							</div>
 
@@ -204,6 +220,7 @@ function Home() {
 										capture();
 										handlertoggler();
 										disablebuttonwc();
+										setUplimg(true);
 									}}
 									className="btn btn-dark btn-lg"
 									id="submit"
@@ -214,15 +231,14 @@ function Home() {
 						</>
 					) : (
 						<>
-							<div className="container d-flex align-content-center justify-content-center bg-wc mt-4 wc-image">
+							<div className="container d-flex align-content-center justify-content-center bg-wc1 mt-4 wc-image">
 								<img
 									src={img}
 									alt="screenshot"
 									className="wc-image "
 									id="img-plate"
-									height={338}
-									width={600}
-									style={{ maxHeight: "100%" }}
+
+									style={{ maxHeight: "100%", aspectRatio: "1 / 1" }}
 								/>
 							</div>
 							<div className="container d-flex justify-content-around btn-container">
@@ -231,9 +247,9 @@ function Home() {
 									style={{ marginTop: "1px" }}>
 									<button
 										onClick={() => {
-											setImg(null);
+											setImg(no_img);
 											setfile();
-
+											setUplimg(false);
 											handlertoggler();
 											setDisabled2(false);
 											setDisabled(false);

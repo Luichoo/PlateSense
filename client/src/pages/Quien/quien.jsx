@@ -7,7 +7,7 @@ import "./quien.css";
 function Quien() {
 	return (
 		<div className="d-flex flex-column">
-			<div className="wc-image m-0 d-flex justify-content-center align-items-center pb-4">
+			<div className="wc-image1 m-0 d-flex justify-content-center align-items-center pb-4">
 				<img className="wc-image" src={companyinfo} alt="imagen del giro" />
 			</div>
 			<div className="">
