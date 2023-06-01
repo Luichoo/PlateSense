@@ -1,14 +1,26 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 
 // import './scripts.js';
 
 function Login() {
+	const Navigate = useNavigate();
 	const [existe, setExiste] = useState(false);
+
+	useEffect(() => {
+		const fetchLoggedStatus = () => {
+			if (localStorage.getItem("token")!==null) {
+				Navigate("/error")
+			}
+		}
+		fetchLoggedStatus();
+
+	}, [Navigate]);
+
 	function handlePasswordChange() {
 		setExiste(false);
 	}
