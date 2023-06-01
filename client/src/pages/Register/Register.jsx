@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./register.css";
 import axios from "axios";
 //import { useState } from 'react';
 // import './scripts.js';
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 function Register() {
-
+	const Navigate = useNavigate();
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [clavef, setClave] = useState("");
 	const [passwordMatch, setPasswordMatch] = useState(true);
 	const [existe, setExiste] = useState(false);
+
+	useEffect(() => {
+		const fetchLoggedStatus = () => {
+			if (localStorage.getItem("token")!==null) {
+				Navigate("/error")
+			}
+		}
+		fetchLoggedStatus();
+
+	}, [Navigate]);
 
 	const handlePasswordChange = (event) => {
 		setPassword(event.target.value);
@@ -64,7 +74,9 @@ function Register() {
 			console.log(err);
 			setExiste(true);
 		}
+
 	};
+
 	return (
 		<div className="body">
 			<div className="container">
