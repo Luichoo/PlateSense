@@ -19,6 +19,9 @@ function Home() {
 	const [disabled2, setDisabled2] = useState(false);
 	const [islogged, setIslogged] = useState(false);
 	const [isLoading, setIsLoading] = useState(true); // Nuevo estado para indicar si la carga está en curso
+	const [placa, setplaca] = useState("");
+	const [msj, setMsj] = useState("");
+
 	const videoConstraints = {
 		width: 880,
 		height: 720,
@@ -79,8 +82,35 @@ function Home() {
 		fetchLoggedStatus();
 	}, []);
 
+	const sendurl = async () => {
+		const url = process.env.REACT_APP_API_URL + "ia/upload";
+		const msjPago = document.getElementById("pago");
+		const msjPlaca = document.getElementById("placa");
+		const body = {
+			url: img,
+			clave: localStorage.getItem("clave"),
+		};
+		try {
+			await axios.post(url, body, { crossdomain: true }).then((response) => {
+				if (response.data.detectado === true) {
+					msjPlaca.className = "text-success pb-2";
+					msjPago.className = "text-success pb-3";
+				} else {
+					msjPlaca.className = "text-danger pb-2";
+					msjPago.className = "text-danger pb-3";
+				}
+
+				setplaca("Placa detectada: " + response.data.placa);
+				setMsj("Pago a realizar: " + response.data.message);
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	const capture = useCallback(() => {
 		const imageSrc = webcamRef.current.getScreenshot();
+
 		setImg(imageSrc);
 	}, [webcamRef]);
 
@@ -88,17 +118,23 @@ function Home() {
 	if (isLoading) {
 		return (
 			<div
-				className="container-fluid d-flex flex-column justify-content-center align-content-center"
+				className="container d-flex justify-content-center align-content-center "
 				style={{ height: "50rem" }}>
-				<h1 className="h1 display-2 p-3 text-center">Cargando...</h1>
+				<div className=" spin_div">
+					<div
+						className="spinner-border"
+						role="status"
+						style={{ width: "4rem", height: "4rem" }}>
+						<span className="sr-only text-center">Loading...</span>
+					</div>
+				</div>
 			</div>
 		);
 	}
 
 	return (
-		<Container fluid style={{ height: islogged ? "80rem": "40rem" }} >
+		<Container fluid style={{ height: islogged ? "90rem" : "40rem" }}>
 			{islogged === false ? (
-				
 				<div className="container d-flex flex-column justify-content-center align-content-center h-100">
 					<h1 className="h1 display-2 p-3 text-center">PlateSense©</h1>
 					<div className="row align-items-stretch">
@@ -110,7 +146,6 @@ function Home() {
 					</div>
 				</div>
 			) : (
-
 				<div className="d-flex flex-column align-items-center h-100 mt-5">
 					<h2 className="mb-3">Bienvenido {localStorage.getItem("clave")}</h2>
 					<p className="text-center lead">Pon una placa para comenzar</p>
@@ -133,6 +168,7 @@ function Home() {
 							htmlFor="switch-label"
 							className="switch-button__label"></label>
 					</div>
+
 					<div className="container" style={{ maxWidth: "20rem" }}>
 						<input
 							className="form-control"
@@ -145,6 +181,7 @@ function Home() {
 							}}
 						/>
 					</div>
+
 					{img === null ? (
 						<>
 							<div className="cam-container mt-4 bg-wc wc-image bg-black">
@@ -182,6 +219,7 @@ function Home() {
 									src={img}
 									alt="screenshot"
 									className="wc-image "
+									id="img-plate"
 									height={338}
 									width={600}
 									style={{ maxHeight: "100%" }}
@@ -195,9 +233,9 @@ function Home() {
 										onClick={() => {
 											setImg(null);
 											setfile();
-											
+
 											handlertoggler();
-											setDisabled2(false)
+											setDisabled2(false);
 											setDisabled(false);
 											//}//
 										}}
@@ -215,6 +253,7 @@ function Home() {
 											// setfile();
 											// if (!checked){
 											//   setChecked(!checked)
+											sendurl();
 											// }
 											//funcion para mandar la foto a la api de google
 											// handlertoggler();
@@ -228,9 +267,20 @@ function Home() {
 							</div>
 						</>
 					)}
+					<div
+						className="container d-flex flex-column  bg-white rounded-5 mb-5 shadow-lg"
+						style={{ visibility: placa===""? "hidden":"visible",maxWidth:"25rem"}}>
+						<div className="align-self-center pt-3">
+							<h4 className="pb-2" id="placa">
+								{placa}
+							</h4>
+							<h4 className="pb-3" id="pago">
+								{msj}
+							</h4>
+						</div>
+					</div>
 					<Plates />
 				</div>
-	
 			)}
 		</Container>
 	);
