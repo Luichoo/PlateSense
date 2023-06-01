@@ -4,7 +4,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const placesRoutes = require("./Routes/places.routes");
 const platesRoutes = require("./Routes/plates.routes");
+const iaRoutes = require("./Routes/ia.routes");
 const cors = require("cors");
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,11 +16,13 @@ const allowedOrigins = [
     // Agrega más dominios permitidos aquí
   ];
 app.use(cors());
+
 app.use(bodyParser.json());
 
 app.use(express.json());
 app.use("/api/auth", placesRoutes);
 app.use("/api/plates", platesRoutes);
+app.use("/api/ia", iaRoutes);
 
 const mongostring = process.env.MONGOurl;
 mongoose.set('strictQuery', true);
