@@ -18,18 +18,11 @@ function Quien() {
 			<div className="container d-flex shadow-lg mb-5 p-3 text">
 				<div className="container d-flex justify-content-center align-content-center p-5">
 					<p className="text-justify">
-						Somos un portal web especializado en el reconocimiento de placas de
-						vehículos, ofreciendo una solución inteligente y eficiente para
-						identificar y analizar información de matrículas en tiempo real.
-						Nuestra plataforma combina tecnologías avanzadas de visión por
-						computadora y aprendizaje automático para brindar resultados
-						precisos y rápidos. Nuestro objetivo principal es facilitar diversas
-						aplicaciones, desde la gestión de estacionamientos y control de
-						acceso, hasta la seguridad vial y el seguimiento de vehículos.
-						Proporcionamos una interfaz intuitiva y amigable que permite a los
-						usuarios cargar imágenes o videos de placas de automóviles para su
-						análisis. Además del reconocimiento de placas, ofrecemos
-						características adicionales que agregan valor a nuestra plataforma.
+						Portal de detección de placas de vehículos, que permite a los usuarios
+						identificar su placa en una base de datos para la entrada a un estacionamiento
+						donde en el dado caso de que la placa no se encuentre en la base de datos, se
+						hará un cobro de $60 pesos por hora de estancia en el estacionamiento y en dado 
+						caso de que si esté en la base de datos, se hará un cobro de $25 pesos por hora.
 					</p>
 				</div>
 			</div>
