@@ -40,7 +40,7 @@ function Plates() {
 	const addPlates = async (e) => {
 		e.preventDefault();
 		const url = process.env.REACT_APP_API_URL + "plates/addplate";
-		console.log(placa);
+		
 		const body = {
 			clave: localStorage.getItem("clave"),
 			placa: placa,
@@ -49,7 +49,6 @@ function Plates() {
 		await axios
 			.post(url, body, { crossDomain: true })
 			.then(function (response) {
-				console.log(response);
 				if (response.status === 201) {
 					localStorage.setItem("placas", response.data.plates);
 					setItems(response.data.plates);
@@ -58,6 +57,8 @@ function Plates() {
 					console.log(response.data.message);
 					handdlerMsj(response.data.message, 2);
 				}
+				setPlaca("");
+				
 			});
 	};
 	const deletePlates = async (plate) => {
