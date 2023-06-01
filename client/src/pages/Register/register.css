@@ -33,3 +33,6 @@ body {
   height: 40px;
     color: #fff;
 }
+.log_container{
+    max-width: 60rem;
+}

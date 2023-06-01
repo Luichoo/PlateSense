@@ -20,7 +20,6 @@ function Login() {
 		const clave = e.target.clave.value;
 		const password = e.target.password.value;
 		try {
-			console.log("hola");
 			
 			const url = process.env.REACT_APP_API_URL + "auth/login";
 			console.log(url);
@@ -58,7 +57,7 @@ function Login() {
 	return (
 		<div className="body">
 			<div className="container">
-				<div className="container mt-5 bg-primary rounded shadow w-75 mb-5">
+				<div className="container mt-5 bg-primary rounded shadow log_container mb-5">
 					<div className="row align-items-stretch">
 						<div className="col bg_img d-none d-lg-block col-md-5 col-lg-5 col-xl-6"></div>
 						<div className="col bg-white rounded-end p-4">

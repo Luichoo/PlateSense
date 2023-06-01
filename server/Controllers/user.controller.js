@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const e = require('express');
 
-const signToken = (_id) => jwt.sign({ _id }, process.env.SECRET_TOKEN,{ expiresIn: '15m' });
+const signToken = (_id) => jwt.sign({ _id }, process.env.SECRET_TOKEN,{ expiresIn: '1d' });
 
 
 const validateJwt = (req, res, next) => {
