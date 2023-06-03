@@ -40,10 +40,16 @@ function Home() {
 		setDisabled2(!disabled2);
 	}
 	function getFile() {
-		const imgfile = document.getElementById("img_upload");
-		const urlimg = URL.createObjectURL(imgfile.files[0]);
-		setImg(urlimg);
-	}
+		const imgFile = document.getElementById("img_upload").files[0];
+		const reader = new FileReader();
+	  
+		reader.onloadend = () => {
+		  const base64String = reader.result;
+		  setImg(base64String);
+		};
+	  
+		reader.readAsDataURL(imgFile);
+	  }
 	function setfile() {
 		const imgfile = document.getElementById("img_upload");
 		imgfile.value = null;
